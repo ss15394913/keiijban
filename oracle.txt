@@ -1,0 +1,11 @@
+SELECT lpad(' ',2*(level-1)) || operation AS operation,
+	options,object_name,position
+FROM plan_table
+START WITH ID = 0 AND STATEMENT_ID = 'sample3'
+CONNECT BY PRIOR ID = PARENT_ID AND
+STATEMENT_ID = 'sample3';
+
+ EXPLAIN PLAN SET statement_id = 'sample3'
+ INTO plan_table
+ FOR SELECT * FROM emp
+WHERE empno = 7369;

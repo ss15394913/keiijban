@@ -1,0 +1,110 @@
+<%@ page contentType="text/html; charset=Windows-31J"%>
+<%@ page import="java.util.ArrayList,bean.ThreadBean,bean.ResBean"%>
+
+<html>
+<head>
+	<title>管理者画面</title>
+</head>
+
+
+
+<!--背景設定-->
+	<!--<body style="background: url(img/b050.jpg);">
+<!--ここまで-->
+
+
+
+<!--一番上に戻るリンク目印-->
+	<a name="top"></a>
+<!--ここまで-->
+
+
+
+<!--掲示板の名前-->
+<center>
+	<h1>管理者ページWakuWaku</h1>
+	<hr><br>
+<!--ここまで-->
+
+<!--スレ一覧用のテーブル-->
+	<h2>スレッド一覧</h2>
+
+ 		<colgroup align="center">
+ 		<col span="2" width="100">
+</colgroup>
+
+<colgroup>
+	<col height="200">
+	<col width="100">
+	<col width="150">
+</colgroup>
+
+
+<tbody>
+</tbody>
+</table>
+<br><br><br>
+
+<!--ここまで-->
+
+<!--スレ立てフォーム-->
+
+<!--削除フォーム-->
+<table border="1">
+	<form action="./AdminServlet" method="post" name="form" onSubmit="return check()">
+<tr>
+	<td>スレッド番号</td>
+<td>
+	<input type="text" name="threadNo" size="15">
+</td>
+</tr>
+
+<tr>
+	<td>レス番号</td>
+<td>
+	<input type="text" name="resNo" size="15">
+</td>
+</tr>
+
+<tr>
+<td>処理選択</td>
+<td>
+<select name="dispose">
+	<option value="delete">スレッドの削除</option>
+	<option value="updata">レスの削除</option>
+</select>
+</td>
+</tr>
+
+<tr><td colspan="2" align="right"><input type="submit" value="決定"></td></tr>
+
+</form>
+</table>
+<br>
+<!--ここまで-->
+
+
+
+</center>
+<br>
+<hr>
+<br>
+
+	<div align="right">
+	<a href="ThreadServlet">ログアウト</a>
+</div>
+
+<hr>
+
+
+<!--一番上に戻るリンク-->
+<center>
+	<a href="#top">一番上に戻る</a>
+	<br><br>
+	<a href="index.html">TOPに戻る</a>
+</center>
+<br>
+<!--ここまで-->
+
+</body>
+</html>

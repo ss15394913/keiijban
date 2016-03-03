@@ -1,0 +1,79 @@
+<head>
+<meta content='IE=EmulateIE7; IE=EmulateIE8' http-equiv='X-UA-Compatible' />
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+	<title>雑談掲示板 - Battlefield4 攻略 BF4 Wiki</title>
+<meta name="description" content="Battlefield4（バトルフィールド4）の攻略Wiki。" />
+
+<link rel="stylesheet" href="http://wikibase.swiki.jp/skin/default.css.php" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://wikibase.swiki.jp/skin/xwikioriginal/WhiteGray/color.css.php" type="text/css" media="screen" charset="utf-8" />
+<!--  <link rel="stylesheet" href="http://wikibase.swiki.jp/skin/print.css" type="text/css" media="print" charset="Shift_JIS" /> -->
+<link rel="alternate" href="http://bf4.swiki.jp/index.php?cmd=mixirss" type="application/rss+xml" title="RSS" />
+<link rel="shortcut icon" href="http://bf4.swiki.jp/favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript">
+<!--
+	var SKIN_DIR="http://wikibase.swiki.jp/skin/";
+var IMAGE_DIR="http://wikibase.swiki.jp/image/";
+var DEFAULT_LANG="ja_JP";
+var LANG="ja_JP";
+
+	// Cookie制御（ユーザーエージェント制御に使用）
+	function setCookie(name, value, expires, domain, path, secure){
+		var c = '';
+		c += name + '=' + encodeURIComponent(value);
+		if(expires){
+			var exp = new Date();
+			exp.setDate(exp.getDate() + expires);
+			c += '; expires=' + exp.toGMTString();
+		}
+		if(domain){ c += '; domain=' + domain; }
+		if(path)	{ c += '; path=' + path; }
+		if(secure){ c += '; secure'; }
+		document.cookie = c;
+	}
+// -->
+</script>
+
+<script type="text/javascript" src="http://wikibase.swiki.jp/skin/lang/ja_JP.js"></script>
+<script type="text/javascript" src="http://wikibase.swiki.jp/skin/default.js"></script>
+<script type="text/javascript" src="http://wikibase.swiki.jp/skin/ajax/textloader.js"></script>
+<script type="text/javascript" src="http://wikibase.swiki.jp/skin/ajax/glossary.js"></script>
+	<script type="text/javascript" src="http://wikibase.swiki.jp/skin/tzCalculation_LocalTimeZone.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'ja'}</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://wikibase.swiki.jp/skin/jquery/scrolltopcontrol.js"></script>
+<script type="text/javascript" src="http://wikibase.swiki.jp/skin/ajax/jquery.tablesorter.js"></script>
+
+
+
+
+
+
+
+
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/33449823/swiki_Common01_left', [336, 280], 'div-gpt-ad-1375278416687-0').addService(googletag.pubads());
+googletag.defineSlot('/33449823/swiki_Common01_right', [336, 280], 'div-gpt-ad-1375278416687-1').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+</head>

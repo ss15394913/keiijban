@@ -1,0 +1,149 @@
+<%@ page contentType="text/html; charset=Windows-31J"%>
+<%@ page import="java.util.ArrayList,bean.ThreadBean,bean.ResBean"%>
+
+<html>
+<head>
+<title>ゴリラちゃんねる</title>
+</head>
+
+
+
+<!--背景設定-->
+<body style="background: url(img/b050.jpg);">
+<!--ここまで-->
+
+
+
+<!--一番上に戻るリンク目印-->
+<a name="top"></a>
+<!--ここまで-->
+
+<!--掲示板の名前-->
+<center>
+	<%
+	ArrayList al = (ArrayList)request.getAttribute("list");
+	int bspage = 0;
+	int pages = 0;
+	ThreadBean tb = new ThreadBean();
+	if(al != null){
+		tb = (ThreadBean)al.get(0);
+		al = tb.getResList();
+	}
+	out.print("<h1>" + tb.getTitle() +"@"+ tb.getDocTag() + "</h1>");
+	%>
+<br>
+[<a href="ThreadServlet">掲示板に戻る</a>]
+<hr>
+<!--ここまで-->
+
+
+
+<!--レス内容表示-->
+<table border="0" cellpadding="8">
+<%
+if(al != null){
+	if(al.size() > 100){
+		pages = al.size() -100;
+	}
+	if(request.getParameter("page") != null){
+		bspage = Integer.parseInt(request.getParameter("page"));
+		pages = bspage * 100;
+	}
+	if(pages == 0){
+		pages = 1;
+	}
+	
+	ResBean rb = (ResBean)al.get(0);
+	
+	//レス番号、名前、日付、ID
+	out.print("<tr><td>"+rb.getResNo()+"</td>");
+	out.print("<td> Name： "+rb.getName()+"</td>");
+	out.print("<td> "+rb.getDate()+"</td>");
+	out.print("<td> ID： "+rb.getID()+"</td></tr>");
+	//レス内容
+	out.println("<tr><td colspan = \"4\">"+rb.getContent()+"</td></tr>");
+	for(int i = pages;i < al.size(); i++){
+		rb = (ResBean)al.get(i);
+		
+		if(request.getParameter("page") != null){
+			if(rb.getResNo() > ((bspage + 1) * 100)){
+				break;
+			}
+		}
+		
+		//レス番号、名前、日付、ID
+		out.print("<tr><td>"+rb.getResNo()+"</td>");
+		out.print("<td> Name： "+rb.getName()+"</td>");
+		out.print("<td> "+rb.getDate()+"</td>");
+		out.print("<td> ID： "+rb.getID()+"</td></tr>");
+		//レス内容
+		out.println("<tr><td colspan = \"4\">"+rb.getContent()+"</td></tr>");
+	}
+	out.print("</table>");
+	if(request.getParameter("page") == null || bspage == 9){
+		if(tb.getResCount() >= 999){
+			out.print("<h1>この掲示板の投稿数はMAXになりました</h1>");
+		}
+	}
+}
+%>
+</tbody>
+<br><br>
+<%
+	String threadNo = request.getParameter("threadNo");
+	if(al != null){
+		out.print("<a href=\"ResServlet?threadNo=" + threadNo + "&page=0\">&lt;&lt;先頭100件</a> ");
+		if((bspage * 100)  != al.size()-100){
+			if(bspage != 0){
+				out.print("<a href=\"ResServlet?threadNo=" + threadNo + "&page=" + (bspage - 1) + "\">&lt;&lt;前へ</a> ");
+			}
+		}
+		for(int i = 0;i < Math.ceil((double)al.size() / 100);i++){
+			out.print("<a href=\"ResServlet?threadNo=" + threadNo + "&page=" + i + "\">" + (i + 1) + "</a> ");
+		}
+		if(request.getParameter("page") != null){
+			if((bspage + 1) * 100 < al.size()){
+				out.print("<a href=\"ResServlet?threadNo=" + threadNo + "&page=" + (bspage + 1) + "\">次へ&gt;&gt;</a> ");
+			}
+		}
+	}
+	out.print("<a href=\"ResServlet?threadNo=" + threadNo + "\">最新100件&gt;&gt;</a>");
+%><br><br><br><br>
+<!--ここまで-->
+
+
+
+<!--レス返信フォーム-->
+<%
+	if(al != null){
+		if(tb.getResCount() < 999){
+			out.print("<fieldset>");
+			out.print("<legend><b>レスを付ける</b></legend>");
+			out.print("<form action=\"./checkRes.jsp\" method=\"post\" name=\"form\">");
+			out.print("<p>おなまえ: <input type=\"text\" name=\"name\" size=\"30\" maxlength=\"10\"></p>");
+			out.print("<p>コメント: <textarea name=\"content\" cols=\"50\" rows=\"10\" placeholder=\"ここに入力\" maxlength=\"2000\"></textarea></p>");
+			out.print("<input type=\"hidden\" name=\"threadNo\" value=\"" + threadNo + "\">");
+			out.print("<p><input type=\"submit\" value=\" レスを付ける \"></p>");
+		}
+}	
+%>
+</form>
+</fieldset>
+<!--ここまで-->
+
+
+
+</center>
+<br>
+
+
+
+<!--一番上に戻るリンク-->
+<center>
+<a href="#top">一番上に戻る</a>
+</center>
+<br>
+<!--ここまで-->
+
+</body>
+</html>
